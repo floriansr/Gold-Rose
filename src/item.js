@@ -8,6 +8,8 @@ class Item {
 
 export default Item;
 
+// TEST WITH NODE.JS
+
 // const items = [
 // 	new BasicProduct("Carotte", 50, 35),
 // 	new LegendaryObject("Sulfura", 80),
