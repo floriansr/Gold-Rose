@@ -16,15 +16,15 @@ describe("GildedRose shop manager", function () {
     listItems.push(new BasicProduct("Mana Cake", 3, 6));
 
     const gildedRose = new Shop(listItems);
-    const items = gildedRose.updateQuality();
+    gildedRose.updateQuality();
 
     var expected = [
       { sellIn: 9, quality: 19 },
       { sellIn: 2, quality: 5 },
     ];
     expected.forEach(function (testCase, idx) {
-      expect(items[idx].quality).toBe(testCase.quality);
-      expect(items[idx].sellIn).toBe(testCase.sellIn);
+      expect(listItems[idx].quality).toBe(testCase.quality);
+      expect(listItems[idx].sellIn).toBe(testCase.sellIn);
     });
   });
 
