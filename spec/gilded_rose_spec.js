@@ -1,6 +1,7 @@
-import Item from "../src/item.js";
-import BasicProduct from "../src/item.js";
-
+import LegendaryObject from "../src/legendaryproduct.js";
+import BetterQualityWithTime from "../src/betterqualitywithtime.js";
+import Tickets from "../src/tickets.js";
+import BasicProduct from "../src/basicproduct.js";
 import Shop from "../src/shop.js";
 
 describe("GildedRose shop manager", function () {
