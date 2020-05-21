@@ -32,6 +32,25 @@ describe("GildedRose shop manager", function () {
 
   //////////////////////////////////////////////////////////
 
+  it("Baisser de 2 la qualité si le produit est périmé", function () {
+    listItems.push(new BasicProduct("+5 Dexterity Vest", 0, 20));
+    listItems.push(new BasicProduct("Mana Cake", 0, 6));
+
+    const gildedRose = new Shop(listItems);
+    gildedRose.updateQuality();
+
+    var expected = [
+      { sellIn: -1, quality: 18 },
+      { sellIn: -1, quality: 4 },
+    ];
+    expected.forEach(function (testCase, idx) {
+      expect(listItems[idx].quality).toBe(testCase.quality);
+      expect(listItems[idx].sellIn).toBe(testCase.sellIn);
+    });
+  });
+
+  //////////////////////////////////////////////////////////
+
   it("Baisser de 2 la qualité et de 1 sellIn, les objets Conjured", function () {
     listItems.push(new Conjured("Conjured Dexterity Vest", 10, 20));
     listItems.push(new Conjured("Conjured Mana Cake", 3, 6));
@@ -42,6 +61,25 @@ describe("GildedRose shop manager", function () {
     var expected = [
       { sellIn: 9, quality: 18 },
       { sellIn: 2, quality: 4 },
+    ];
+    expected.forEach(function (testCase, idx) {
+      expect(listItems[idx].quality).toBe(testCase.quality);
+      expect(listItems[idx].sellIn).toBe(testCase.sellIn);
+    });
+  });
+
+  //////////////////////////////////////////////////////////
+
+  it("Baisser de 4 la qualité si un objet conjured est périmé", function () {
+    listItems.push(new Conjured("Conjured Dexterity Vest", 0, 16));
+    listItems.push(new Conjured("Conjured Mana Cake", 0, 5));
+
+    const gildedRose = new Shop(listItems);
+    gildedRose.updateQuality();
+
+    var expected = [
+      { sellIn: -1, quality: 12 },
+      { sellIn: -1, quality: 1 },
     ];
     expected.forEach(function (testCase, idx) {
       expect(listItems[idx].quality).toBe(testCase.quality);

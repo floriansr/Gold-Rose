@@ -12,6 +12,10 @@ class Conjured extends Item {
 			this.quality = this.quality - 2;
 		}
 
+		if (this.sellIn < 0) {
+			this.quality = this.quality - 2;
+		}
+
 		console.log(
 			this.name +
 				" have " +
